@@ -1,0 +1,80 @@
+{
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "sourceRoot": "packages/money-tracker-front/src",
+    "projectType": "application",
+    "targets": {
+        "build": {
+            "executor": "@nrwl/webpack:webpack",
+            "outputs": ["{options.outputPath}"],
+            "defaultConfiguration": "production",
+            "options": {
+                "compiler": "babel",
+                "outputPath": "dist/packages/money-tracker-front",
+                "index": "packages/money-tracker-front/src/index.html",
+                "baseHref": "/",
+                "main": "packages/money-tracker-front/src/main.tsx",
+                "polyfills": "packages/money-tracker-front/src/polyfills.ts",
+                "tsConfig": "packages/money-tracker-front/tsconfig.app.json",
+                "assets": ["packages/money-tracker-front/src/favicon.ico", "packages/money-tracker-front/src/assets"],
+                "styles": ["packages/money-tracker-front/src/styles.css"],
+                "scripts": [],
+                "webpackConfig": "@nrwl/react/plugins/webpack"
+            },
+            "configurations": {
+                "development": {
+                    "extractLicenses": false,
+                    "optimization": false,
+                    "sourceMap": true,
+                    "vendorChunk": true
+                },
+                "production": {
+                    "fileReplacements": [
+                        {
+                            "replace": "packages/money-tracker-front/src/environments/environment.ts",
+                            "with": "packages/money-tracker-front/src/environments/environment.prod.ts"
+                        }
+                    ],
+                    "optimization": true,
+                    "outputHashing": "all",
+                    "sourceMap": false,
+                    "namedChunks": false,
+                    "extractLicenses": true,
+                    "vendorChunk": false
+                }
+            }
+        },
+        "serve": {
+            "executor": "@nrwl/webpack:dev-server",
+            "defaultConfiguration": "development",
+            "options": {
+                "buildTarget": "money-tracker-front:build",
+                "hmr": true
+            },
+            "configurations": {
+                "development": {
+                    "buildTarget": "money-tracker-front:build:development"
+                },
+                "production": {
+                    "buildTarget": "money-tracker-front:build:production",
+                    "hmr": false
+                }
+            }
+        },
+        "lint": {
+            "executor": "@nrwl/linter:eslint",
+            "outputs": ["{options.outputFile}"],
+            "options": {
+                "lintFilePatterns": ["packages/money-tracker-front/**/*.{ts,tsx,js,jsx}"]
+            }
+        },
+        "test": {
+            "executor": "@nrwl/jest:jest",
+            "outputs": ["coverage/packages/money-tracker-front"],
+            "options": {
+                "jestConfig": "packages/money-tracker-front/jest.config.ts",
+                "passWithNoTests": true
+            }
+        }
+    },
+    "tags": []
+}
