@@ -5,7 +5,7 @@
     "scripts": {},
     "private": true,
     "devDependencies": {
-        "@nrwl/cli": "14.7.13",
+        "@nrwl/cli": "15.0.4",
         "@nrwl/cypress": "14.7.13",
         "@nrwl/eslint-plugin-nx": "14.7.13",
         "@nrwl/express": "^14.7.13",
