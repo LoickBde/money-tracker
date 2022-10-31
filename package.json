@@ -52,7 +52,7 @@
     "nedb": "^1.8.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-router-dom": "6.4.1",
+    "react-router-dom": "6.4.2",
     "regenerator-runtime": "0.13.10",
     "tslib": "^2.3.0"
   }
