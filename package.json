@@ -16,7 +16,7 @@
     "@nrwl/web": "15.0.4",
     "@nrwl/workspace": "15.0.4",
     "@testing-library/react": "13.4.0",
-    "@types/express": "4.17.13",
+    "@types/express": "4.17.14",
     "@types/jest": "28.1.1",
     "@types/nedb": "^1.8.12",
     "@types/node": "16.11.7",
@@ -48,7 +48,7 @@
   ],
   "dependencies": {
     "core-js": "^3.26.0",
-    "express": "^4.18.1",
+    "express": "^4.18.2",
     "nedb": "^1.8.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
