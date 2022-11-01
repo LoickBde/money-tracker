@@ -1,5 +1,9 @@
+import * as dotenv from 'dotenv';
 import express, { Request, Response } from 'express';
 import DataStore from 'nedb';
+import { clientDemo } from './utils/db-config';
+
+dotenv.config();
 
 // db
 const db = new DataStore({ filename: 'packages/money-tracker-api/money-tracker.db' });
@@ -86,3 +90,5 @@ const server = app.listen(port, () => {
     console.log(`Listening at http://localhost:${port}/api`);
 });
 server.on('error', console.error);
+
+clientDemo();
