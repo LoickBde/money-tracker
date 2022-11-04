@@ -13,5 +13,5 @@ updates:
           timezone: 'Europe/Paris'
       commit-message:
           prefix: 'chore(deps)'
-      open-pull-requests-limit: 30
+      open-pull-requests-limit: 20
       target-branch: main
