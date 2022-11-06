@@ -1,6 +1,7 @@
 import * as dotenv from 'dotenv';
-import express, { Request, Response } from 'express';
-import { getAllUsers } from './utils/db-config';
+import express from 'express';
+import sequelizeConnection from './db/config';
+import routes from './api/routes';
 
 dotenv.config();
 
@@ -9,13 +10,31 @@ const port = process.env.PORT || 3333;
 
 app.use(express.json());
 
-app.get('/api', (req, res) => {
+app.use('/api/v1', routes);
+
+app.get('/api/v1', (req, res) => {
     res.send({ message: 'Welcome to money-tracker-api!' });
 });
 
-const server = app.listen(port, () => {
-    console.log(`Listening at http://localhost:${port}/api`);
-});
-server.on('error', console.error);
+async function assertDatabaseConnectionOk() {
+    console.log(`Checking database connection...`);
+    try {
+        await sequelizeConnection.authenticate();
+        console.log('Database connection OK!');
+    } catch (error) {
+        console.log('Unable to connect to the database:');
+        console.log(error.message);
+        process.exit(1);
+    }
+}
 
-getAllUsers();
+async function init() {
+    console.log(`Starting Sequelize and Express on port ${port}...`);
+    await assertDatabaseConnectionOk();
+    const server = app.listen(port, () => {
+        console.log(`Listening at http://localhost:${port}/api`);
+    });
+    server.on('error', console.error);
+}
+
+init();
