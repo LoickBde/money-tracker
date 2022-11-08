@@ -1,4 +1,5 @@
 {
+    "name": "money-tracker-front",
     "$schema": "../../node_modules/nx/schemas/project-schema.json",
     "sourceRoot": "packages/money-tracker-front/src",
     "projectType": "application",
