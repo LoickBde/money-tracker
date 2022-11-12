@@ -28,9 +28,24 @@ async function assertDatabaseConnectionOk() {
     }
 }
 
+async function syncDbModels() {
+    console.log(`Trying to synchronize  database and models...`);
+    try {
+        await sequelizeConnection.sync();
+        console.log('Synchronization OK!');
+    } catch (error) {
+        console.log('Unable to synchronize the database:');
+        console.log(error.message);
+        process.exit(1);
+    }
+
+    console.log('All models were synchronized successfully.');
+}
+
 async function init() {
     console.log(`Starting Sequelize and Express on port ${port}...`);
     await assertDatabaseConnectionOk();
+    await syncDbModels();
     const server = app.listen(port, () => {
         console.log(`Listening at http://localhost:${port}/api`);
     });
