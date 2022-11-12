@@ -8,6 +8,6 @@ services:
         restart: always
         env_file:
             - postgre.env
-        volumes:
-            - ./init-money-tracker.sql:/docker-entrypoint-initdb.d/init.sql
-            # - ~/Developer/postgresql/money-tracker-db:/var/lib/postgresql/data # to create a volume
+        # volumes:
+        # - ./init-money-tracker.sql:/docker-entrypoint-initdb.d/init.sql #to init db with init data
+        # - ~/Developer/postgresql/money-tracker-db:/var/lib/postgresql/data # to create a volume
