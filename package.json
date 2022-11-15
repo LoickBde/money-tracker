@@ -43,7 +43,7 @@
     "packages/**"
   ],
   "dependencies": {
-    "core-js": "^3.26.0",
+    "core-js": "^3.26.1",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "pg": "^8.8.0",
