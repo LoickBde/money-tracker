@@ -11,7 +11,7 @@
     "@nrwl/jest": "15.2.1",
     "@nrwl/linter": "15.2.1",
     "@nrwl/node": "15.2.1",
-    "@nrwl/react": "15.2.1",
+    "@nrwl/react": "15.4.1",
     "@nrwl/web": "15.2.1",
     "@nrwl/workspace": "15.2.1",
     "@testing-library/react": "13.4.0",
